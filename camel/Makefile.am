@@ -397,4 +397,31 @@ EXTRA_DIST =					\
 CLEANFILES = $(BUILT_SOURCES)
 DISTCLEANFILES = $(pkgconfig_DATA)
 
+-include $(INTROSPECTION_MAKEFILE)
+INTROSPECTION_GIRS =
+INSTROSPECTION_SCANNER_ARGS = --identifier-prefix Camel --pkg-export \
+	camel-1.2 --c-include="camel/camel.h"
+INTROSPECTION_COMPILER_ARGS =
+
+if HAVE_INTROSPECTION
+introspection_sources = \
+	$(filter-out %-private.h e-sexp.h camel-enumtypes.h camel-enumtypes.c, $(libcamelinclude_HEADERS) \
+	$(libcamel_1_2_la_SOURCES))
+
+Camel-1.2.gir: libcamel-1.2.la
+Camel_1_2_gir_INCLUDES = GObject-2.0 libxml2-2.0 Gio-2.0
+Camel_1_2_gir_CFLAGS = -I$(top_srcdir) -I$(top_builddir) $(CAMEL_CFLAGS) -DCAMEL_COMPILATION
+Camel_1_2_gir_LIBS = libcamel-1.2.la
+Camel_1_2_gir_FILES = $(introspection_sources)
+INTROSPECTION_GIRS += Camel-1.2.gir
+
+girdir = $(datadir)/gir-1.0
+gir_DATA = $(INTROSPECTION_GIRS)
+
+typelibdir = $(libdir)/girepository-1.0
+typelib_DATA = $(INTROSPECTION_GIRS:.gir=.typelib)
+
+CLEANFILES += $(gir_DATA) $(typelib_DATA)
+endif
+
 -include $(top_srcdir)/git.mk
