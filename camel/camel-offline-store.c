@@ -82,7 +82,6 @@ camel_offline_store_init (CamelOfflineStore *store)
 /**
  * camel_offline_store_get_online:
  * @store: a #CamelOfflineStore
- * @error: return location for a #GError, or %NULL
  *
  * Returns %TRUE if @store is online.
  *

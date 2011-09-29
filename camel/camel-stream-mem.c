@@ -279,7 +279,7 @@ camel_stream_mem_new (void)
  * for use as the stream backing. This may have resource implications
  * you may wish to consider.
  *
- * Returns: a new #CamelStreamMem
+ * Returns: (transfer full): a new #CamelStreamMem
  **/
 CamelStream *
 camel_stream_mem_new_with_buffer (const gchar *buffer,
@@ -297,14 +297,14 @@ camel_stream_mem_new_with_buffer (const gchar *buffer,
 
 /**
  * camel_stream_mem_new_with_byte_array:
- * @buffer: a #GByteArray to use as the stream data
+ * @buffer: (inout): a #GByteArray to use as the stream data
  *
  * Create a new #CamelStreamMem using @buffer as the stream data.
  *
  * Note: The newly created #CamelStreamMem will destroy @buffer
  * when destroyed.
  *
- * Returns: a new #CamelStreamMem
+ * Returns: (transfer full): a new #CamelStreamMem
  **/
 CamelStream *
 camel_stream_mem_new_with_byte_array (GByteArray *buffer)
@@ -345,6 +345,7 @@ camel_stream_mem_set_secure (CamelStreamMem *mem)
  * camel_stream_mem_get_byte_array:
  * @mem: a #CamelStreamMem
  *
+ * Returns: (transfer none): a #GByteArray
  * Since: 2.32
  **/
 GByteArray *
@@ -358,7 +359,7 @@ camel_stream_mem_get_byte_array (CamelStreamMem *mem)
 /**
  * camel_stream_mem_set_byte_array:
  * @mem: a #CamelStreamMem object
- * @buffer: a #GByteArray
+ * @buffer: (inout): a #GByteArray
  *
  * Set @buffer to be the backing data to the existing #CamelStreamMem, @mem.
  *
@@ -386,7 +387,7 @@ camel_stream_mem_set_byte_array (CamelStreamMem *mem,
 /**
  * camel_stream_mem_set_buffer:
  * @mem: a #CamelStreamMem object
- * @buffer: a memory buffer
+ * @buffer: (in): a memory buffer
  * @len: length of @buffer
  *
  * Set @buffer to be the backing data to the existing #CamelStreamMem, @mem.

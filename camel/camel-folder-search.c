@@ -410,9 +410,8 @@ camel_folder_search_execute_expression (CamelFolderSearch *search,
 
 /**
  * camel_folder_search_count:
- * @search:
- * @expr:
- * @uids: to search against, NULL for all uid's.
+ * @search: a #CamelFolderSearch
+ * @expr: search expression
  * @error: return location for a #GError, or %NULL
  *
  * Run a search.  Search must have had Folder already set on it, and

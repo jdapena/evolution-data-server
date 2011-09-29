@@ -107,7 +107,7 @@ struct _CamelSessionClass {
 
 	CamelService *	(*add_service)		(CamelSession *session,
 						 const gchar *uid,
-						 const gchar *url_string,
+						 const gchar *uri_string,
 						 CamelProviderType type,
 						 GError **error);
 	gchar *		(*get_password)		(CamelSession *session,
@@ -230,7 +230,7 @@ gboolean	camel_session_get_network_available
 						(CamelSession *session);
 void		camel_session_set_network_available
 						(CamelSession *session,
-						 gboolean network_state);
+						 gboolean network_available);
 const GHashTable *
 		camel_session_get_junk_headers	(CamelSession *session);
 void		camel_session_set_junk_headers	(CamelSession *session,

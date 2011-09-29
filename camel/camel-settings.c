@@ -133,7 +133,7 @@ camel_settings_init (CamelSettings *settings)
 
 /**
  * camel_settings_class_list_settings:
- * @class: a #CamelSettingsClass
+ * @klass: a #CamelSettingsClass
  * @n_settings: return location for the length of the returned array
  *
  * Returns an array of #GParamSpec for properties of @class which are
@@ -146,13 +146,13 @@ camel_settings_init (CamelSettings *settings)
  * Since: 3.2
  **/
 GParamSpec **
-camel_settings_class_list_settings (CamelSettingsClass *class,
+camel_settings_class_list_settings (CamelSettingsClass *klass,
                                     guint *n_settings)
 {
-	g_return_val_if_fail (CAMEL_IS_SETTINGS_CLASS (class), NULL);
-	g_return_val_if_fail (class->list_settings != NULL, NULL);
+	g_return_val_if_fail (CAMEL_IS_SETTINGS_CLASS (klass), NULL);
+	g_return_val_if_fail (klass->list_settings != NULL, NULL);
 
-	return class->list_settings (class, n_settings);
+	return klass->list_settings (klass, n_settings);
 }
 
 /**

@@ -3228,7 +3228,7 @@ camel_folder_summary_info_new_from_parser (CamelFolderSummary *summary,
  * camel_folder_summary_info_new_from_message:
  * @summary: a #CamelFodlerSummary object
  * @message: a #CamelMimeMessage object
- * @boydstructure: a bodystructure or NULL
+ * @bodystructure: a bodystructure or NULL
  *
  * Create a summary item from a message.
  *
@@ -3285,11 +3285,11 @@ camel_folder_summary_info_new_from_message (CamelFolderSummary *summary,
 
 /**
  * camel_folder_summary_content_info_free:
- * @summary: a #CamelFolderSummary object
+ * @summary: a #CamelFolderSummary
  * @ci: a #CamelMessageContentInfo
  *
  * Free the content info @ci, and all associated memory.
- **/
+ */
 void
 camel_folder_summary_content_info_free (CamelFolderSummary *summary,
                                         CamelMessageContentInfo *ci)

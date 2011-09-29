@@ -431,6 +431,7 @@ camel_stream_filter_new (CamelStream *source)
  * camel_stream_filter_get_source:
  * @stream: a #CamelStreamFilter
  *
+ * Return: (transfer none): source stream
  * Since: 2.32
  **/
 CamelStream *

@@ -1499,7 +1499,6 @@ camel_folder_info_free (CamelFolderInfo *fi)
 
 /**
  * camel_folder_info_new:
- * @store: a #CamelStore
  *
  * Allocates a new #CamelFolderInfo instance.  Free it with
  * camel_folder_info_free().
@@ -2157,7 +2156,7 @@ camel_store_get_folder_info_finish (CamelStore *store,
  *
  * Gets the folder in @store into which new mail is delivered.
  *
- * Returns: the inbox folder for @store, or %NULL on error or if no such
+ * Returns: (transfer full): the inbox folder for @store, or %NULL on error or if no such
  * folder exists
  *
  * Since: 3.0
@@ -2234,7 +2233,7 @@ camel_store_get_inbox_folder (CamelStore *store,
  *
  * Finishes the operation started with camel_store_get_inbox_folder().
  *
- * Returns: the inbox folder for @store, or %NULL on error or if no such
+ * Returns: (transfer full): the inbox folder for @store, or %NULL on error or if no such
  * folder exists
  *
  * Since: 3.0

@@ -68,7 +68,7 @@ camel_address_new (void)
  *
  * Clone an existing address type.
  *
- * Returns: the cloned address
+ * Returns: (transfer full): the cloned address
  **/
 CamelAddress *
 camel_address_new_clone (CamelAddress *addr)

@@ -2126,7 +2126,7 @@ camel_header_param (struct _camel_header_param *p,
  *
  * Set a parameter in the list.
  *
- * Returns: the set param
+ * Returns: (transfer none): the set param
  **/
 struct _camel_header_param *
 camel_header_set_param (struct _camel_header_param **l,
@@ -2260,7 +2260,7 @@ camel_header_param_list_free (struct _camel_header_param *p)
  *
  * Create a new #CamelContentType.
  *
- * Returns: the new #CamelContentType
+ * Returns: (transfer full): the new #CamelContentType
  **/
 CamelContentType *
 camel_content_type_new (const gchar *type,

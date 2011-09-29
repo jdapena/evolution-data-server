@@ -646,6 +646,13 @@ camel_key_table_init (CamelKeyTable *table)
 	g_static_mutex_init (&table->priv->lock);
 }
 
+/**
+ * camel_key_table_new:
+ * @bs: a #CamelBlockFile
+ * @root: a #camel_block_t identifying the root
+ *
+ * Returns: (transfer full): a #CamelKeyTable
+ */
 CamelKeyTable *
 camel_key_table_new (CamelBlockFile *bs,
                      camel_block_t root)

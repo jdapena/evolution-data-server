@@ -76,11 +76,11 @@ struct _CamelDiscoStore {
 struct _CamelDiscoStoreClass {
 	CamelStoreClass parent_class;
 
-	gboolean	(*set_status)		(CamelDiscoStore *,
-						 CamelDiscoStoreStatus,
+	gboolean	(*set_status)		(CamelDiscoStore *store,
+						 CamelDiscoStoreStatus status,
 						 GCancellable *cancellable,
 						 GError **error);
-	gboolean	(*can_work_offline)	(CamelDiscoStore *);
+	gboolean	(*can_work_offline)	(CamelDiscoStore *store);
 
 	gboolean	(*connect_online)	(CamelService *service,
 						 GCancellable *cancellable,

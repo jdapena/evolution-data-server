@@ -204,6 +204,8 @@ escape_values (gchar *str)
  * Converts a valid sexp expression to a sql statement with table fields converted into it.
  * This is very specific to Evolution. It might crash is the sexp is invalid. The callers must ensure that the sexp is valid
  *
+ * Returns: (transfer full): a SQL string
+ *
  * Since: 2.24
  **/
 gchar *

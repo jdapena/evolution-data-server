@@ -298,15 +298,14 @@ add_to_list (gpointer key,
 }
 
 /**
- * camel_session_list_providers:
- * @session: the session
+ * camel_provider_list:
  * @load: whether or not to load in providers that are not already loaded
  *
- * This returns a list of available providers in this session. If @load
+ * This returns a list of available providers. If @load
  * is %TRUE, it will first load in all available providers that haven't
  * yet been loaded.
  *
- * Returns: a GList of providers, which the caller must free.
+ * Returns: (transfer container) (element-type Camel.Provider): a GList of providers, which the caller must free.
  **/
 GList *
 camel_provider_list (gboolean load)
@@ -354,7 +353,7 @@ camel_provider_list (gboolean load)
  * This returns the CamelProvider that would be used to handle
  * @url_string, loading it in from disk if necessary.
  *
- * Returns: the provider, or %NULL, in which case @error will be set.
+ * Returns: (transfer none): the provider, or %NULL, in which case @error will be set.
  **/
 CamelProvider *
 camel_provider_get (const gchar *url_string,

@@ -66,7 +66,7 @@ struct _CamelOfflineStoreClass {
 GType		camel_offline_store_get_type (void);
 gboolean	camel_offline_store_get_online	(CamelOfflineStore *store);
 gboolean	camel_offline_store_set_online_sync
-						(CamelOfflineStore *store,
+						(CamelOfflineStore *offline_store,
 						 gboolean online,
 						 GCancellable *cancellable,
 						 GError **error);

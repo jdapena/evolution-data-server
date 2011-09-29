@@ -200,7 +200,7 @@ struct _CamelCipherContextClass {
 						 GAsyncResult *result,
 						 GError **error);
 	void		(*encrypt)		(CamelCipherContext *context,
-						 const gchar *user_id,
+						 const gchar *userid,
 						 GPtrArray *recipients,
 						 CamelMimePart *ipart,
 						 CamelMimePart *opart,

@@ -171,13 +171,13 @@ struct _CamelFolderClass {
 						 GPtrArray *uids);
 	GPtrArray *	(*get_summary)		(CamelFolder *folder);
 	void		(*free_summary)		(CamelFolder *folder,
-						 GPtrArray *summary);
+						 GPtrArray *array);
 	gboolean	(*has_search_capability)(CamelFolder *folder);
 	GPtrArray *	(*search_by_expression)	(CamelFolder *folder,
 						 const gchar *expression,
 						 GError **error);
 	GPtrArray *	(*search_by_uids)	(CamelFolder *folder,
-						 const gchar *expression,
+						 const gchar *expr,
 						 GPtrArray *uids,
 						 GError **error);
 	void		(*search_free)		(CamelFolder *folder,
@@ -191,7 +191,7 @@ struct _CamelFolderClass {
 						 CamelMessageInfo *info);
 	void		(*delete)		(CamelFolder *folder);
 	void		(*rename)		(CamelFolder *folder,
-						 const gchar *newname);
+						 const gchar *new_name);
 	void		(*freeze)		(CamelFolder *folder);
 	void		(*thaw)			(CamelFolder *folder);
 	gboolean	(*is_frozen)		(CamelFolder *folder);
@@ -333,7 +333,7 @@ struct _CamelFolderClass {
 
 	/* Signals */
 	void		(*changed)		(CamelFolder *folder,
-						 CamelFolderChangeInfo *info);
+						 CamelFolderChangeInfo *changes);
 	void		(*deleted)		(CamelFolder *folder);
 	void		(*renamed)		(CamelFolder *folder,
 						 const gchar *old_name);
@@ -418,7 +418,7 @@ gboolean	camel_folder_has_search_capability
 						(CamelFolder *folder);
 GPtrArray *	camel_folder_search_by_expression
 						(CamelFolder *folder,
-						 const gchar *expr,
+						 const gchar *expression,
 						 GError **error);
 GPtrArray *	camel_folder_search_by_uids	(CamelFolder *folder,
 						 const gchar *expr,

@@ -2299,8 +2299,8 @@ remove_folders (CamelFolder *folder,
 
 /**
  * camel_vee_folder_set_folders:
- * @vf:
- * @folders:
+ * @vf: a #CamelVeeFolder
+ * @folders: (element-type Camel.Folder): list of folders
  *
  * Set the whole list of folder sources on a vee folder.
  **/
@@ -2388,14 +2388,14 @@ camel_vee_folder_hash_folder (CamelFolder *folder,
 
 /**
  * camel_vee_folder_get_location:
- * @vf:
+ * @vf: a #CamelVeeFolder
  * @vinfo:
- * @realuid: if not NULL, set to the uid of the real message, must be
+ * @realuid: (out) (allow-none): if not NULL, set to the uid of the real message, must be
  * g_free'd by caller.
  *
  * Find the real folder (and uid)
  *
- * Returns:
+ * Returns: (transfer none): a #CamelFolder
  **/
 CamelFolder *
 camel_vee_folder_get_location (CamelVeeFolder *vf,

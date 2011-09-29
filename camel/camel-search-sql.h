@@ -30,7 +30,7 @@
 
 G_BEGIN_DECLS
 
-gchar * camel_sexp_to_sql (const gchar *sexp);
+gchar * camel_sexp_to_sql (const gchar *txt);
 
 G_END_DECLS
 

@@ -332,6 +332,7 @@ camel_vee_summary_new (CamelFolder *parent)
 /**
  * camel_vee_summary_get_ids:
  *
+ * Returns: (transfer full) (element-type utf8):  list of ids
  * Since: 2.24
  **/
 GPtrArray *

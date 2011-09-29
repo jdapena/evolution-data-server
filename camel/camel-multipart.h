@@ -79,7 +79,7 @@ struct _CamelMultipartClass {
 	void (*set_boundary) (CamelMultipart *multipart, const gchar *boundary);
 	const gchar * (*get_boundary) (CamelMultipart *multipart);
 
-	gint (*construct_from_parser)(CamelMultipart *, struct _CamelMimeParser *);
+	gint (*construct_from_parser)(CamelMultipart *multipart, struct _CamelMimeParser *parser);
 	/*int (*construct_from_stream)(CamelMultipart *, CamelStream *);*/
 };
 

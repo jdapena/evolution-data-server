@@ -790,7 +790,7 @@ camel_session_get_user_cache_dir (CamelSession *session)
  * If the @uri_string is invalid or no #CamelProvider is available to
  * handle the @uri_string, the function sets @error and returns %NULL.
  *
- * Returns: a #CamelService instance, or %NULL
+ * Returns: (transfer none): a #CamelService instance, or %NULL
  *
  * Since: 3.2
  **/
@@ -1274,7 +1274,7 @@ camel_session_get_junk_filter (CamelSession *session)
 /**
  * camel_session_set_junk_filter:
  * @session: a #CamelSession
- * @junk_filer: a #CamelJunkFilter, or %NULL
+ * @junk_filter: a #CamelJunkFilter, or %NULL
  *
  * Installs the #CamelJunkFilter instance used to classify messages as
  * junk or not junk during filtering.

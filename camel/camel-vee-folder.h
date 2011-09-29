@@ -91,12 +91,12 @@ struct _CamelVeeFolderClass {
 
 	/* TODO: Some of this may need some additional work/thinking through, it works for now*/
 
-	void		(*add_folder)		(CamelVeeFolder *vee_folder,
-						 CamelFolder *folder);
-	void		(*remove_folder)	(CamelVeeFolder *vee_folder,
-						 CamelFolder *folder);
-	gint		(*rebuild_folder)	(CamelVeeFolder *vee_folder,
-						 CamelFolder *folder,
+	void		(*add_folder)		(CamelVeeFolder *vf,
+						 CamelFolder *sub);
+	void		(*remove_folder)	(CamelVeeFolder *vf,
+						 CamelFolder *sub);
+	gint		(*rebuild_folder)	(CamelVeeFolder *vf,
+						 CamelFolder *sub,
 						 GError **error);
 
 	void		(*set_expression)	(CamelVeeFolder *vee_folder,

@@ -1019,7 +1019,7 @@ camel_service_get_session (CamelService *service)
  *
  * Returns the #CamelSettings instance associated with the service.
  *
- * Returns: the #CamelSettings
+ * Returns: (transfer none): the #CamelSettings
  *
  * Since: 3.2
  **/
