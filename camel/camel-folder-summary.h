@@ -301,7 +301,6 @@ struct _CamelFolderSummaryClass {
 	gboolean (*info_set_flags)(CamelMessageInfo *mi, guint32 mask, guint32 set);
 };
 
-<<<<<<< HEAD
 GType			camel_folder_summary_get_type	(void);
 CamelFolderSummary *	camel_folder_summary_new	(struct _CamelFolder *folder);
 
@@ -341,29 +340,6 @@ guint32			camel_folder_summary_get_next_uid
 							(CamelFolderSummary *summary);
 gchar *			camel_folder_summary_next_uid_string
 							(CamelFolderSummary *summary);
-=======
-/* Meta-summary info */
-struct _CamelFolderMetaSummary {
-	guint32 major;		/* Major version of meta-summary */
-	guint32 minor;		/* Minor version of meta-summary */
-	guint32 uid_len;	/* Length of UID (for implementors to use) */
-	gboolean msg_expunged;	/* Whether any message is expunged or not */
-	gchar *path;		/* Path to meta-summary-file */
-};
-
-GType			 camel_folder_summary_get_type	(void);
-CamelFolderSummary      *camel_folder_summary_new	(struct _CamelFolder *folder);
-
-/* Deprecated */
-void camel_folder_summary_set_filename (CamelFolderSummary *summary, const gchar *filename);
-
-void camel_folder_summary_set_index (CamelFolderSummary *summary, CamelIndex *index);
-void camel_folder_summary_set_build_content (CamelFolderSummary *summary, gboolean state);
-
-guint32  camel_folder_summary_next_uid        (CamelFolderSummary *summary);
-gchar*   camel_folder_summary_next_uid_string (CamelFolderSummary *summary);
-void	 camel_folder_summary_set_uid	      (CamelFolderSummary *summary, guint32 uid);
->>>>>>> Very basic initial support for GObject introspection in Camel.
 
 /* load/save the full summary from/to the db */
 gboolean		camel_folder_summary_save_to_db	(CamelFolderSummary *summary,
