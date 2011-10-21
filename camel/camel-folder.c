@@ -2283,7 +2283,7 @@ camel_folder_has_summary_capability (CamelFolder *folder)
  * support summaries. The returned array should not be modified, and
  * must be freed by passing it to camel_folder_free_uids().
  *
- * Returns: (transfer container): a GPtrArray of UIDs corresponding to the messages available
+ * Returns: (element-type utf8) (transfer container): a GPtrArray of UIDs corresponding to the messages available
  * in the folder
  **/
 GPtrArray *
@@ -3226,7 +3226,7 @@ camel_folder_expunge_finish (CamelFolder *folder,
  *
  * Gets the message corresponding to @message_uid from @folder.
  *
- * Returns: a #CamelMimeMessage corresponding to the requested UID
+ * Returns: (transfer full): a #CamelMimeMessage corresponding to the requested UID
  *
  * Since: 3.0
  **/

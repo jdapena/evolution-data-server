@@ -57,6 +57,8 @@
 	(G_TYPE_INSTANCE_GET_CLASS \
 	((obj), CAMEL_TYPE_STORE, CamelStoreClass))
 
+#define CAMEL_TYPE_FOLDER_INFO (camel_folder_info_get_type ())
+
 /**
  * CAMEL_STORE_ERROR:
  *
@@ -86,6 +88,11 @@ typedef enum {
 	CAMEL_STORE_FOLDER_LOCK
 } CamelStoreLock;
 
+/**
+ * CamelFolderInfo:
+ *
+ **/
+typedef struct _CamelFolderInfo CamelFolderInfo;
 typedef struct _CamelFolderInfo {
 	struct _CamelFolderInfo *next;
 	struct _CamelFolderInfo *parent;
@@ -97,7 +104,7 @@ typedef struct _CamelFolderInfo {
 	CamelFolderInfoFlags flags;
 	gint32 unread;
 	gint32 total;
-} CamelFolderInfo;
+};
 
 struct _CamelDB;
 
@@ -321,6 +328,7 @@ void		camel_store_free_folder_info_full
 						 CamelFolderInfo *fi);
 void		camel_store_free_folder_info_nop (CamelStore *store,
 						 CamelFolderInfo *fi);
+GType		camel_folder_info_get_type	(void) G_GNUC_CONST;
 CamelFolderInfo *
 		camel_folder_info_new		(void);
 void		camel_folder_info_free		(CamelFolderInfo *fi);

@@ -257,7 +257,7 @@ camel_medium_remove_header (CamelMedium *medium,
  * instance of the header.  For multi-occuring headers, use
  * :get_headers().
  *
- * Returns: the value of the named header, or %NULL
+ * Returns: (transfer none): the value of the named header, or %NULL
  **/
 gconstpointer
 camel_medium_get_header (CamelMedium *medium,

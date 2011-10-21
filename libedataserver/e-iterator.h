@@ -70,6 +70,7 @@ struct _EIteratorClass {
 
 GType		e_iterator_get_type		(void) G_GNUC_CONST;
 gconstpointer	e_iterator_get			(EIterator *iterator);
+GObject*	e_iterator_get_object		(EIterator *iterator);
 void		e_iterator_reset		(EIterator *iterator);
 void		e_iterator_last			(EIterator *iterator);
 gboolean	e_iterator_next			(EIterator *iterator);

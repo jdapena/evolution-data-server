@@ -53,6 +53,8 @@
 	(G_TYPE_INSTANCE_GET_CLASS \
 	((obj), CAMEL_TYPE_FOLDER_SUMMARY, CamelFolderSummaryClass))
 
+#define CAMEL_TYPE_MESSAGE_INFO (camel_message_info_get_type ());
+
 G_BEGIN_DECLS
 
 struct _CamelFolder;
@@ -483,6 +485,7 @@ void			camel_tag_list_free		(CamelTag **list);
 
 /* Summary may be null */
 /* Use anonymous pointers to avoid tons of cast crap */
+GType                   camel_message_info_get_type     (void) G_GNUC_CONST;
 gpointer		camel_message_info_new		(CamelFolderSummary *summary);
 gpointer		camel_message_info_ref		(gpointer info);
 CamelMessageInfo *	camel_message_info_new_from_header

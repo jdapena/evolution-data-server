@@ -74,6 +74,20 @@ e_iterator_get (EIterator *iterator)
 		return NULL;
 }
 
+/**
+ * e_iterator_get_object:
+ * @iterator: an #EIterator
+ *
+ * for bindings, obtain the current iterator item as a #GObject
+ *
+ * Returns: (transfer none): a #GObject
+ */
+GObject*
+e_iterator_get_object (EIterator* iterator)
+{
+	return G_OBJECT (e_iterator_get (iterator));
+}
+
 void
 e_iterator_reset (EIterator *iterator)
 {

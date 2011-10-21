@@ -1676,6 +1676,20 @@ camel_folder_info_clone (CamelFolderInfo *fi)
 	return folder_info_clone_rec (fi, NULL);
 }
 
+GType
+camel_folder_info_get_type (void)
+{
+	static GType type = G_TYPE_INVALID;
+
+	if (G_UNLIKELY (type == G_TYPE_INVALID))
+		type = g_boxed_type_register_static (
+			"CamelFolderInfo",
+			(GBoxedCopyFunc) camel_folder_info_clone,
+			(GBoxedFreeFunc) camel_folder_info_free);
+
+	return type;
+}
+
 /**
  * camel_store_can_refresh_folder
  * @store: a #CamelStore
@@ -2000,7 +2014,7 @@ camel_store_get_folder_finish (CamelStore *store,
  * supplied or not.  The only guaranteed way to get updated folder
  * counts is to both open the folder and invoke refresh_info() it.
  *
- * Returns: a #CamelFolderInfo tree, or %NULL on error
+ * Returns: (transfer full): a #CamelFolderInfo tree, or %NULL on error
  *
  * Since: 3.0
  **/

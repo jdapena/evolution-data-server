@@ -4791,6 +4791,20 @@ camel_system_flag_get (CamelMessageFlags flags,
 	return flags & camel_system_flag (name);
 }
 
+GType
+camel_message_info_get_type (void)
+{
+	static GType type = G_TYPE_INVALID;
+
+	if (G_UNLIKELY (type == G_TYPE_INVALID))
+		type = g_boxed_type_register_static (
+			"CamelMessageInfo",
+			(GBoxedCopyFunc) camel_message_info_clone,
+			(GBoxedFreeFunc) camel_message_info_free);
+
+	return type;
+}
+
 /**
  * camel_message_info_new:
  * @summary: a #CamelFolderSummary object or %NULL

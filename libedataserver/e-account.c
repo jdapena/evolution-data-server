@@ -1007,6 +1007,15 @@ ea_setting_setup (void)
 	(((gchar **)(((gchar *) ea) + account_info[type].offset))[0] + account_info[type].struct_offset): \
 	(((gchar *) ea) + account_info[type].offset))
 
+/**
+ * e_account_get_string:
+ * @ea: an #EAccount
+ * @type: id of the item
+ *
+ * Obtain value as string
+ *
+ * Returns: (transfer none): the current value
+ */
 const gchar *
 e_account_get_string (EAccount *ea,
                       e_account_item_t type)
