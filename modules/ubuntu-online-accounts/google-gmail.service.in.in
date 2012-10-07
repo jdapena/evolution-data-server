@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="google-gmail">
+  <type>mail</type>
+  <_name>GMail</_name>
+  <provider>google</provider>
+  <translations>@GETTEXT_PACKAGE@</translations>
+
+  <!-- default settings (account settings have precedence over these) -->
+  <template>
+    <group name="auth">
+      <group name="oauth2">
+        <group name="user_agent">
+          <setting type="as" name="Scope">["https://mail.google.com/"]</setting>
+        </group>
+      </group>
+    </group>
+  </template>
+</service>

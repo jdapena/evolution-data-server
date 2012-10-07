@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="google-contacts">
+  <type>contacts</type>
+  <_name>Google Contacts</_name>
+  <provider>google</provider>
+  <translations>@GETTEXT_PACKAGE@</translations>
+
+  <!-- default settings (account settings have precedence over these) -->
+  <template>
+    <group name="auth">
+      <group name="oauth2">
+        <group name="user_agent">
+          <setting type="as" name="Scope">["https://www.google.com/m8/feeds/"]</setting>
+        </group>
+      </group>
+    </group>
+  </template>
+</service>

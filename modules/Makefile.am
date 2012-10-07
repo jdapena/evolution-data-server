@@ -4,12 +4,17 @@ if HAVE_GOA
 GNOME_ONLINE_ACCOUNTS_DIR = gnome-online-accounts
 endif
 
+if HAVE_UOA
+UBUNTU_ONLINE_ACCOUNTS_DIR = ubuntu-online-accounts
+endif
+
 SUBDIRS = \
 	cache-reaper \
 	google-backend \
 	trust-prompt \
 	yahoo-backend \
 	$(GNOME_ONLINE_ACCOUNTS_DIR) \
+	$(UBUNTU_ONLINE_ACCOUNTS_DIR) \
 	$(NULL)
 
 -include $(top_srcdir)/git.mk
