@@ -146,6 +146,11 @@ EDataBook *	e_data_book_new			(struct _EBookBackend *backend,
 						 GDBusConnection *connection,
 						 const gchar *object_path,
 						 GError **error);
+EDataBook *	e_data_book_new_direct		(ESourceRegistry *registry,
+						 ESource *source,
+						 const gchar *backend_path,
+						 const gchar *backend_name,
+						 const gchar *config);
 struct _EBookBackend *
 		e_data_book_get_backend		(EDataBook *book);
 GDBusConnection *
@@ -212,6 +217,28 @@ void		e_data_book_report_backend_property_changed
 
 gchar *		e_data_book_string_slist_to_comma_string
 						(const GSList *strings);
+
+/* Direct read access apis */
+void		e_data_book_open		                (EDataBook *book, gboolean only_if_exists, GCancellable *cancellable, GAsyncReadyCallback callback, gpointer user_data);
+gboolean	e_data_book_open_finish                         (EDataBook *book, GAsyncResult *result, GError **error);
+gboolean	e_data_book_open_sync		                (EDataBook *book, gboolean only_if_exists, GCancellable *cancellable, GError **error);
+
+void		e_data_book_close		                (EDataBook *book, GCancellable *cancellable, GAsyncReadyCallback callback, gpointer user_data);
+gboolean	e_data_book_close_finish                        (EDataBook *book, GAsyncResult *result, GError **error);
+gboolean	e_data_book_close_sync		                (EDataBook *book, GCancellable *cancellable, GError **error);
+
+void		e_data_book_get_contact			        (EDataBook *book, const gchar *uid, GCancellable *cancellable, GAsyncReadyCallback callback, gpointer user_data);
+gboolean	e_data_book_get_contact_finish                  (EDataBook *book, GAsyncResult *result, EContact **contact, GError **error);
+gboolean	e_data_book_get_contact_sync                    (EDataBook *book, const gchar *uid, EContact **contact, GCancellable *cancellable, GError **error);
+
+void		e_data_book_get_contacts			(EDataBook *book, const gchar *sexp, GCancellable *cancellable, GAsyncReadyCallback callback, gpointer user_data);
+gboolean	e_data_book_get_contacts_finish                 (EDataBook *book, GAsyncResult *result, GSList **contacts, GError **error);
+gboolean	e_data_book_get_contacts_sync			(EDataBook *book, const gchar *sexp, GSList **contacts, GCancellable *cancellable, GError **error);
+
+void		e_data_book_get_contacts_uids			(EDataBook *book, const gchar *sexp, GCancellable *cancellable, GAsyncReadyCallback callback, gpointer user_data);
+gboolean	e_data_book_get_contacts_uids_finish		(EDataBook *book, GAsyncResult *result, GSList **contacts_uids, GError **error);
+gboolean	e_data_book_get_contacts_uids_sync		(EDataBook *book, const gchar *sexp, GSList **contacts_uids, GCancellable *cancellable, GError **error);
+
 
 G_END_DECLS
 

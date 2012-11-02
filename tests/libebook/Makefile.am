@@ -2,8 +2,6 @@ SUBDIRS = vcard client
 
 @GNOME_CODE_COVERAGE_RULES@
 
-### EBook Tests (deprecated) ###
-
 noinst_LTLIBRARIES = libebook-test-utils.la
 libebook_test_utils_la_SOURCES = ebook-test-utils.c ebook-test-utils.h
 
@@ -23,6 +21,7 @@ libebook_test_utils_la_CPPFLAGS = \
 	$(NULL)
 
 libebook_test_utils_la_LIBADD = \
+	$(top_builddir)/addressbook/libebook-contacts/libebook-contacts-1.2.la	\
 	$(top_builddir)/addressbook/libebook/libebook-1.2.la	\
 	$(top_builddir)/tests/test-server-utils/libetestserverutils.la	\
 	$(EVOLUTION_ADDRESSBOOK_LIBS)                           \

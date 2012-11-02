@@ -27,9 +27,9 @@
 #define E_BOOK_CLIENT_H
 
 #include <libedataserver/libedataserver.h>
+#include <libebook-contacts/libebook-contacts.h>
 
 #include <libebook/e-book-client-view.h>
-#include <libebook/e-contact.h>
 
 /* Standard GObject macros */
 #define E_TYPE_BOOK_CLIENT \
@@ -122,6 +122,9 @@ GError *	e_book_client_error_create	(EBookClientError code,
 
 GType		e_book_client_get_type		(void) G_GNUC_CONST;
 EBookClient *	e_book_client_new		(ESource *source,
+						 GError **error);
+EBookClient *   e_book_client_new_direct        (ESourceRegistry *registry,
+						 ESource *source,
 						 GError **error);
 gboolean	e_book_client_get_self		(ESourceRegistry *registry,
 						 EContact **contact,

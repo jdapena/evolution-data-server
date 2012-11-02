@@ -991,6 +991,10 @@ book_backend_sqlitedb_load (EBookBackendSqliteDB *ebsdb,
 		ebsdb->priv->db,
 		"PRAGMA case_sensitive_like = ON",
 		NULL, NULL, NULL);
+	book_backend_sql_exec (
+		ebsdb->priv->db,
+	        "PRAGMA journal_mode = WAL",
+		NULL, NULL, NULL);
 
 	WRITER_UNLOCK (ebsdb);
 
