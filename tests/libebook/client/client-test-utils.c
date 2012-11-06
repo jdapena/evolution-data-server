@@ -29,6 +29,12 @@
 
 #include "client-test-utils.h"
 
+/* This forces the GType to be registered in a way that
+ * avoids a "statement with no effect" compiler warning.
+ * FIXME Use g_type_ensure() once we require GLib 2.34. */
+#define REGISTER_TYPE(type) \
+	(g_type_class_unref (g_type_class_ref (type)))
+
 void
 report_error (const gchar *operation,
               GError **error)
@@ -331,7 +337,7 @@ create_book_idle (CreateBookData *data)
 	if (!data->source)
 		g_error ("Unable to fetch newly created source uid '%s' from the registry", data->uid);
 
-	data->book = e_book_client_new (data->source, &error);
+	data->book = e_book_client_new_direct (data->registry, data->source, &error);
 	if (!data->book)
 		g_error ("Unable to create the book: %s", error->message);
 
