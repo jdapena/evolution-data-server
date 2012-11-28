@@ -2769,6 +2769,7 @@ complete_get_view (EBookClient *client,
 			"client", client,
 			"connection", connection,
 			"object-path", view_path,
+			"direct-book", client->priv->direct_book,
 			NULL);
 
 		if (local_error != NULL) {
